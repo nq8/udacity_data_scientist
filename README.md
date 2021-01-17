@@ -3,7 +3,7 @@
 ## Motivation
 In this project, I will examine how the price for apartments in Seattle correlate to different features such as the number of bed rooms, the apartment type or the rating score.
 
-The blog post is avaible on [https://nniillss.medium.com/how-can-you-achieve-the-best-price-per-night-renting-your-seattle-apartment-on-airbnb-fad63c199551].
+The blog post is avaible [here](https://nniillss.medium.com/how-can-you-achieve-the-best-price-per-night-renting-your-seattle-apartment-on-airbnb-fad63c199551).
 
 ## Question 1: Do better review scores correlate with higher prices?
 ## Answer 1: A small positive correlation between the price and the review score rating is found.
@@ -23,7 +23,7 @@ The blog post is avaible on [https://nniillss.medium.com/how-can-you-achieve-the
 ```
 ./files/seattle_listing.csv
 ```
-This file contains a detailed data base for numerous available apartments in Seattle. The data can be found under [https://www.kaggle.com/airbnb/seattle/data].
+This file contains a detailed data base for numerous available apartments in Seattle. The data can be found under [here](https://www.kaggle.com/airbnb/seattle/data).
 
 ## Used libraries
 Besides popular and standard libraries such as sklearn and numpy+pandas, no additional libraries are used.
