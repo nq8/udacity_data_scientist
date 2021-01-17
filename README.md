@@ -3,6 +3,8 @@
 ## Motivation
 In this project, I will examine how the price for apartments in Seattle correlate to different features such as the number of bed rooms, the apartment type or the rating score.
 
+The blog post is avaible on [https://nniillss.medium.com/how-can-you-achieve-the-best-price-per-night-renting-your-seattle-apartment-on-airbnb-fad63c199551].
+
 ## Question 1: Do better review scores correlate with higher prices?
 ## Answer 1: A small positive correlation between the price and the review score rating is found.
 
