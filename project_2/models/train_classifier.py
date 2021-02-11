@@ -27,7 +27,7 @@ from sqlalchemy import create_engine
 def load_data(database_filepath):
     """Load data from the input file path."""
     # load data from database
-    engine = create_engine('sqlite:///DisasterResponse.db')
+    engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql(database_filepath, engine)
    
     X = df.message
@@ -52,7 +52,10 @@ def tokenize(text):
 
 
 def build_model():
-    """Create and return a model with CountVectorizing and TFIDF using SK-Learn's pipeline."""
+    """Create and return a model with CountVectorizing and TFIDF using SK-Learn's pipeline.
+    Returns:
+    pipeline: Pipeline model
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -63,7 +66,13 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    """Evaluate the model on the given test data."""
+    """Evaluate the model on the given test data.
+    Parameters:
+    model: Trained ML model
+    X_test: Test data
+    Y_test: Test target values
+    category_names: All possible category names
+    """
     y_pred = model.predict(X_test)
 
     for i, col in enumerate(category_names):
@@ -72,7 +81,11 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
-    """Save the model under the specified file path."""
+    """Save the model under the specified file path.
+    Parameters:
+    model: Trained ML model
+    model_filepath: Location of the model
+    """
     joblib.dump(model, model_filepath)
 
 

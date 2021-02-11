@@ -5,7 +5,12 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
-    """Loads the date from two databases and merges it into one Dataframe."""
+    """Loads the date from two databases and merges it into one Dataframe.
+    Parameters:
+    messages_filepath: Path to messages file
+    categories_filepath: Path to categories file
+
+    """
     # load messages dataset
     messages = pd.read_csv(messages_filepath)
     messages.head()
@@ -19,7 +24,10 @@ def load_data(messages_filepath, categories_filepath):
     return df
 
 def clean_data(df):
-    """Cleans an input dataframe and expands its category column to a one-hot encoding style."""
+    """Cleans an input dataframe and expands its category column to a one-hot encoding style.
+    Parameters:
+    df: Dataframe
+    """
     # create a dataframe of the 36 individual category columns
     categories = df['categories'].str.split(";", expand=True)
     categories.columns = categories.iloc[0]
@@ -45,8 +53,13 @@ def clean_data(df):
 
 
 def save_data(df, database_filename):
-    """Save the dataframe on a specified file path."""
-    engine = create_engine('sqlite:///DisasterResponse.db')
+    """Save the dataframe on a specified file path.
+    Parameters:
+    df: Dataframe
+    database_filename: Specified path including filename.
+    """
+    engine = create_engine('sqlite:///' + database_filename)
+    print ("saved to ", database_filename)
     df.to_sql(database_filename, engine, index=False, if_exists="replace")  
 
 
