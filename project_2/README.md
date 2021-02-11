@@ -38,3 +38,6 @@ project
 └───models
     │   train_classifier.py -> Train model on pre-created database
 ```
+
+### Link to Github
+You can find the project on Github: https://github.com/nq8/udacity_data_scientist/tree/main/project_2.
