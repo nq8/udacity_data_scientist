@@ -5,8 +5,10 @@ import pandas as pd
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import nltk
+from nltk.corpus import stopwords
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('stopwords')
 
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
@@ -44,6 +46,8 @@ def tokenize(text):
         clean_tok = lemmatizer.lemmatize(tok).lower().strip()
         clean_tokens.append(clean_tok)
 
+    # Remove stop words
+    clean_tokens = [w for w in clean_tokens if w not in stopwords.words("english")]
     return clean_tokens
 
 
