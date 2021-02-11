@@ -61,8 +61,14 @@ def build_model():
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(KNeighborsClassifier()))
     ])
-    
-    return pipeline
+
+    parameters = {
+        'clf__estimator__n_neighbors': [3,5]
+    }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
@@ -75,9 +81,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     """
     y_pred = model.predict(X_test)
 
-    for i, col in enumerate(category_names):
-        print("Category:", col)
-        print(classification_report(Y_test.iloc[:,i], y_pred[:,i]))
+    classification_report(Y_test.iloc, y_pred, target_names=category_names)
 
 
 def save_model(model, model_filepath):
