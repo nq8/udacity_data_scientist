@@ -1,5 +1,5 @@
 # Sparkify
-
+Find the full implementation of [Github](https://github.com/nq8/udacity_data_scientist/tree/main/capstone). 
 ## Motivation
 In this project, the imaginary music streaming platform Sparkify is analyzed. The goal is to predict whether a user 
 might quit his or her subscription. If we can predict accurately if a user is on the edge to cancel the subscription,
